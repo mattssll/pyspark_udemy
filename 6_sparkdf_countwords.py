@@ -16,4 +16,4 @@ groupByWords = lowerCaseWords.groupBy("word").count()
 # Sort by Counts
 wordCountSorted = groupByWords.sort("count")
 # Show results
-wordCountSorted.show(wordCountSorted.count())
+wordCountSorted.show(wordCountSorted.count()) # the internal parameter is to show the number of rows in DF
