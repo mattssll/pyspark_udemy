@@ -1,6 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql import Row
-
+import os
+curwd = os.getcwd()
 # Create spark SparkSession
 spark = SparkSession.builder.appName("sparksqlone").getOrCreate()
 
@@ -10,7 +11,7 @@ def mapper(line):
     return Row(ID=int(fields[0]), name=str(fields[1].encode("utf-8")), 
             age=int(fields[2]), numFriends=int(fields[3]))
 
-lines = spark.sparkContext.textFile("file:////Users/mateus.leao/Documents/mattssll/spark/udemy-spark-frank/datasets/idnameagefriends.csv")
+lines = spark.sparkContext.textFile(f"file:///{curwd}/datasets/datasets/idnameagefriends.csv")
 
 people = lines.map(mapper)
 

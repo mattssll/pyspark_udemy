@@ -26,7 +26,7 @@ printResults(rdd)
 totalsByAge = rdd.mapValues(lambda x: (x, 1)).reduceByKey(lambda x, y: (x[0] + y[0], x[1] + y[1]))
 # result is (reduction):
 # (33, (443, 1))
-# (23, (953, 2)) # 953 = 4xx + 4xx, -- 2 = 1+1
+# (23, (953, 2))
 # (51, (321, 1))
 # (59, (123, 1))
 # in reduceByKey it sums by keys: the keys are handled by the method itself
