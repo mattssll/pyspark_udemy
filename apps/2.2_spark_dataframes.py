@@ -2,7 +2,7 @@ from pyspark.sql import SparkSession
 import os
 spark = SparkSession.builder.appName("SparkSQLDataframes").getOrCreate()
 curwd = os.getcwd()
-people = spark.read.option("header", "true").option("inferSchema", "true").csv(f"file:///{curwd}/fakefriends-header.csv")
+people = spark.read.option("header", "true").option("inferSchema", "true").csv(f"file:///{curwd}/datasets/fakefriends-header.csv")
 print("log: check our inferred schema: ")
 people.printSchema()
 print("showing only name column from data")
